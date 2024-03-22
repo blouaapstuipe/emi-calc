@@ -14,7 +14,10 @@
       <input type="number" pattern="[0-9]*" class="form-control" id="loanTermYears" [(ngModel)]="criteria.loanTermYears" name="loanTermYears">
     </div>
     <button class="btn btn-success mt-2" type="submit">Calc</button>
-    <p>{{ result.value }}</p>
-    <p>{{ result.message }}</p>
+    <br/>
+    <div class="form-group">
+      <p>Montly installment: {{ result.value }}</p>
+      <p>{{ result.message }}</p>
+    </div>
   </form>
 </div>

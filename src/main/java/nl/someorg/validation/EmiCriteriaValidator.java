@@ -28,7 +28,7 @@ public class EmiCriteriaValidator {
             throw new CalcValidationException("Interest rate may not larger than 100");
         }
         if (input.getLoanTermYears() <= 0){
-            throw new CalcValidationException("Loan term years may not be negative");
+            throw new CalcValidationException("Loan term years may not be zero or negative");
         }
         if (input.getLoanTermYears() > 30){
             throw new CalcValidationException("Loan term may not be longer than 30 years");
