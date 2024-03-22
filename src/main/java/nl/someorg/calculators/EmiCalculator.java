@@ -27,7 +27,9 @@ public class EmiCalculator implements Calculator{
     public CalcResult calculate() {
         CalcResult result = new CalcResult();
         try {
-            BigDecimal monthlyInterestRate = input.getYearlyInterestRate().divide(BigDecimal.valueOf(12.00), MathContext.DECIMAL64);
+            BigDecimal monthlyInterestRate = input.getYearlyInterestRate()
+                    .divide(BigDecimal.valueOf(100.00), MathContext.DECIMAL64)
+                    .divide(BigDecimal.valueOf(12.00), MathContext.DECIMAL64);
             int tenure = input.getLoanTermYears() * 12;
             BigDecimal product = monthlyInterestRate.add(BigDecimal.valueOf(1)).pow(tenure);
             BigDecimal value = input.getLoanValue()
