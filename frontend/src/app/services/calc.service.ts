@@ -9,13 +9,13 @@ import { CalcResult } from '../model/calc-result.model';
 })
 export class CalcService {
 
-  private baseUrl = "http://localhost:8080/calc"
+  private baseUrl = "http://localhost:8080/calc/emi"
 
   constructor(private httpClient: HttpClient) {
   }
 
   calcEmi(criteria: EmiCriteria): Observable<CalcResult> {
-    return this.httpClient.post<EmiCriteria>(`${this.baseUrl}`, criteria);
+    return this.httpClient.post<CalcResult>(`${this.baseUrl}`, criteria);
   }
 
 }

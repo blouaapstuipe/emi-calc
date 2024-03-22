@@ -5,7 +5,16 @@
       <label for="loanValue">Loan value:</label>
       <input type="number" pattern="[0-9]*" class="form-control" id="loanValue" [(ngModel)]="criteria.loanValue" name="loanValue">
     </div>
+    <div class="form-group">
+      <label for="yearlyInterestRate">Yearly interest rate:</label>
+      <input type="number" pattern="[0-9]*" class="form-control" id="yearlyInterestRate" [(ngModel)]="criteria.yearlyInterestRate" name="yearlyInterestRate">
+    </div>
+    <div class="form-group">
+      <label for="loanTermYears">Loan term in years:</label>
+      <input type="number" pattern="[0-9]*" class="form-control" id="loanTermYears" [(ngModel)]="criteria.loanTermYears" name="loanTermYears">
+    </div>
     <button class="btn btn-success mt-2" type="submit">Calc</button>
     <p>{{ result.value }}</p>
+    <p>{{ result.message }}</p>
   </form>
 </div>
