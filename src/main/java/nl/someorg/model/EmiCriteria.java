@@ -1,31 +1,33 @@
 package nl.someorg.model;
 
-public class EmiCriteria {
-    private String loanValue;
-    private String yearlyInterestRate;
-    private String loanTermYears;
+import java.math.BigDecimal;
 
-    public String getLoanValue() {
+public class EmiCriteria {
+    private BigDecimal loanValue;
+    private BigDecimal yearlyInterestRate;
+    private BigDecimal loanTermYears;
+
+    public BigDecimal getLoanValue() {
         return loanValue;
     }
 
-    public void setLoanValue(String loanValue) {
+    public void setLoanValue(BigDecimal loanValue) {
         this.loanValue = loanValue;
     }
 
-    public String getYearlyInterestRate() {
+    public BigDecimal getYearlyInterestRate() {
         return yearlyInterestRate;
     }
 
-    public void setYearlyInterestRate(String yearlyInterestRate) {
+    public void setYearlyInterestRate(BigDecimal yearlyInterestRate) {
         this.yearlyInterestRate = yearlyInterestRate;
     }
 
-    public String getLoanTermYears() {
+    public BigDecimal getLoanTermYears() {
         return loanTermYears;
     }
 
-    public void setLoanTermYears(String loanTermYears) {
+    public void setLoanTermYears(BigDecimal loanTermYears) {
         this.loanTermYears = loanTermYears;
     }
 }
