@@ -4,27 +4,22 @@ import nl.someorg.model.CalcResult;
 import nl.someorg.model.EmiCriteria;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
 
-public class EmiCalculator implements Calculator{
-    private final EmiCriteria input;
-
+@Component
+public class EmiCalculator {
     private static final Logger logger = LoggerFactory.getLogger(EmiCalculator.class);
-
-    public EmiCalculator(EmiCriteria input){
-        this.input = input;
-    }
 
     /**
      * EMI = P x R x (1+R)^N / [(1+R)^N-1]
      * where, “P” is the loan amount, “N” is tenure in months, and “R” is the monthly interest
      * rate.
      */
-    @Override
-    public CalcResult calculate() {
+    public CalcResult calculate(EmiCriteria input) {
         CalcResult result = new CalcResult();
         try {
             BigDecimal monthlyInterestRate = input.getYearlyInterestRate()
