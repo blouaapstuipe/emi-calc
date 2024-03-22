@@ -1,9 +1,21 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { EmiCriteria } from '../model/emi-criteria.model';
+import { CalcResult } from '../model/calc-result.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CalcService {
 
-  constructor() { }
+  private baseUrl = "http://localhost:8080/calc"
+
+  constructor(private httpClient: HttpClient) {
+  }
+
+  calcEmi(criteria: EmiCriteria): Observable<CalcResult> {
+    return this.httpClient.post<EmiCriteria>(`${this.baseUrl}`, criteria);
+  }
+
 }

@@ -1,1 +1,11 @@
-<p>emi works!</p>
+<div class="container">
+  <h2 class="text-left">Calculate the thing</h2>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="loanValue">Loan value:</label>
+      <input type="number" pattern="[0-9]*" class="form-control" id="loanValue" [(ngModel)]="criteria.loanValue" name="loanValue">
+    </div>
+    <button class="btn btn-success mt-2" type="submit">Calc</button>
+    <p>{{ result.value }}</p>
+  </form>
+</div>

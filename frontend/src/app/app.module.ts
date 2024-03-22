@@ -1,9 +1,12 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
-import { EmiComponent } from './emi/emi.component';
+import { EmiComponent } from './components/emi/emi.component';
+import { CalcService } from './services/calc.service';
 
 @NgModule({
   declarations: [
@@ -12,9 +15,12 @@ import { EmiComponent } from './emi/emi.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule,
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [CalcService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
