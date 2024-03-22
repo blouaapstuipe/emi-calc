@@ -20,6 +20,18 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring.version>3.2.3</spring.version>
     </properties>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>nl.someorg.Main</mainClass>
+                    <layout>JAR</layout>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
     <dependencies>
         <dependency>
@@ -38,4 +50,6 @@
             <version>${spring.version}</version>
         </dependency>
     </dependencies>
+
+
 </project>
