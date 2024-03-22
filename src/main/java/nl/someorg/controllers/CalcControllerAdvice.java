@@ -1,5 +1,7 @@
 package nl.someorg.controllers;
 
+import nl.someorg.calculators.CalculatorException;
+import nl.someorg.model.CalcResult;
 import nl.someorg.validation.CalcValidationException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -15,8 +17,19 @@ public class CalcControllerAdvice extends ResponseEntityExceptionHandler {
             = { CalcValidationException.class})
     protected ResponseEntity<Object> handleValidationException(
             RuntimeException ex, WebRequest request) {
-        Object bodyOfResponse = "{\"result\": \"N/A\", \"message\": \"error message\"}";
-        return handleExceptionInternal(ex, bodyOfResponse,
+        CalcResult result = new CalcResult();
+        result.setMessage(ex.getMessage());
+        return handleExceptionInternal(ex, result,
+                new HttpHeaders(), HttpStatus.OK, request);
+    }
+
+    @ExceptionHandler(value
+            = { CalculatorException.class})
+    protected ResponseEntity<Object> handleCalculatorException(
+            RuntimeException ex, WebRequest request) {
+        CalcResult result = new CalcResult();
+        result.setMessage(ex.getMessage());
+        return handleExceptionInternal(ex, result,
                 new HttpHeaders(), HttpStatus.OK, request);
     }
 }

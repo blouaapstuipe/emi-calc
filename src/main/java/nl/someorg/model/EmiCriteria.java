@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 public class EmiCriteria {
     private BigDecimal loanValue;
     private BigDecimal yearlyInterestRate;
-    private BigDecimal loanTermYears;
+    private Integer loanTermYears;
 
     public BigDecimal getLoanValue() {
         return loanValue;
@@ -23,11 +23,11 @@ public class EmiCriteria {
         this.yearlyInterestRate = yearlyInterestRate;
     }
 
-    public BigDecimal getLoanTermYears() {
+    public Integer getLoanTermYears() {
         return loanTermYears;
     }
 
-    public void setLoanTermYears(BigDecimal loanTermYears) {
+    public void setLoanTermYears(Integer loanTermYears) {
         this.loanTermYears = loanTermYears;
     }
 }
